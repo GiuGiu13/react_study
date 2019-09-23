@@ -17,7 +17,9 @@ class FullPost extends Component {
     }
     loadData(){
         if(this.props.match.params.id){
-            if(!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id != this.props.match.params.id)){
+            //here therei s a problem with the check, we check between two id but the first is a number
+            //and the second is a string so we change the second from string to number adding a plus 
+            if(!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)){
                 axios.get('/posts/' + this.props.match.params.id)
                     .then(response => {
                         // console.log(response)
