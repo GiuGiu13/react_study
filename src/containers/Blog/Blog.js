@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Posts from '../Posts/Posts';
 import {Route, NavLink, Switch} from 'react-router-dom';
 import NewPost from '../NewPost/NewPost';
-import FullPost from '../FullPost/FullPost'
+// import FullPost from '../FullPost/FullPost'
 
 import './Blog.css';
 
@@ -15,7 +15,7 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             <li><NavLink 
-                                    to="/" 
+                                    to="/posts/" 
                                     exact
                                     //1 if you want assign a custom active class you can with below,
                                     //otherwise the class is always active by default
@@ -26,7 +26,7 @@ class Blog extends Component {
                                     //     textDecoration:'underline'
                                     // }}>
                                 > 
-                                    Home
+                                    Posts
                                 </NavLink>
                             </li>
                             <li><NavLink to={{
@@ -43,12 +43,13 @@ class Blog extends Component {
                 {/* <Route path='/' exact render={() => <h1>home</h1>} />
                 <Route path='/'  render={() => <h1>home2</h1>} /> */}
 
-                <Route path='/' exact component={Posts} />
+               
                 <Switch>
                       {/* the order of the route is very important*/}
-                    
                     <Route path='/new-post' component={NewPost} />
-                    <Route path='/:id' exact component={FullPost} />
+                    <Route path='/posts' component={Posts} />
+                    
+                    {/* <Route path='/:id' exact component={FullPost} /> */}
                
                 </Switch>
 
